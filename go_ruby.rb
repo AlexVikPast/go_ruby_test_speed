@@ -19,13 +19,21 @@ module MegaSum
 end
 
 time_begin_go = Time.now
+
 1000.times do |n|
   MegaSum.add(3, 2)
 end
-time_end_go = Time.now
 
-time_begin_go = Time.now
+time_go = Time.now - time_begin_go
+
+time_begin_ruby = Time.now
 1000.times do |n|
   MegaSum.add_ruby(3, 2)
 end
-time_end_go = Time.now
+
+time_ruby = Time.now - time_begin_ruby
+
+puts "Время работы Go.. #{time_go}"
+puts "Время работы Ruby #{time_ruby}"
+
+puts "Go быстрее Ruby в #{time_ruby/time_go}"
